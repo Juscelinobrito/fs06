@@ -49,3 +49,13 @@ VALUES
 ('Michael', 'ale@email.com', '32312312312'),
 ('Victor', 'ale@email.com', '42312312312'),
 ('Guilherme', 'ale@email.com', '52312312312');
+
+-- Adicionando um relacionamento entre clientes e veiculos --
+INSERT INTO tb_cliente (nome, email, cpf)
+VALUES ('Nao definicido', '---', '---');
+-- ADICIONANDO A COLUNA QUE REFERENCIA O CLIENTE --
+ALTER TABLE tb_veiculo
+    ADD COLUMN cliente_id INT(11) NOT NULL DEFAULT 6;
+-- Criando a relação entre as fuas tabelas --
+ALTER TABLE tb_veiculo 
+    ADD FOREIGN KEY (cliente_id) REFERENCES tb_cliente(id);
